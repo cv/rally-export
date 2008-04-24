@@ -3,29 +3,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Stories</title>
-<style type="text/css" media="print">
-#form {
-  display: none;
-}
-</style>
 <style type="text/css" media="print, screen">
 
 body {
   font-family: Helvetica;
 }
 
-label {
-  display: block;
-  margin-top: 5px;
-  margin-left: 5px;
-}
-
 table {
-  width: 6in;
-  height: 4in;
+  width: 5in;
+  height: 3in;
   border: 1px dashed #888;
   padding: 10px;
-  margin: 0.25in;
+  margin: 0.10in;
 }
 
 hr {
@@ -64,22 +53,24 @@ hr {
 
 .iteration {
   font-size: 10pt;
-  color: #aaa;
+  text-align: right;
+  padding-right: 2em;
+}
+
+.content {
+  background-color: #ffc;
+}
+
+.functionality {
+  background-color: #cfc;
 }
 
 </style>
 </head>
 <body>
-  
-  <div id="form">
-    <form action="">
-      <label for="filter_query">Query: <%= text_field 'filter', 'query' %></label>
-      <label for="filter_order">Order: <%= text_field 'filter', 'order' %></label>
-      <input type="submit" value="Search"/>
-    </form>
-  </div>
-  
+    
   <% for story in @stories %>
+  <% next if story.estimate == 0 %>
   <table>
     <tr>
       <td class="id"><%= story.formatted_id %></td>
@@ -89,14 +80,14 @@ hr {
       <td class="name" colspan="2"><%= story.name %></td>
     <tr>
     <tr>
-      <td class="description" colspan="2"><%= story.description %></td>
+      <td class="description" colspan="2"><!-- <%= story.description %> --></td>
     </tr>
     <tr>
-      <td class="iteration">Scheduled for iteration <%= story.iteration %> as of <%= Date.today %></td>
-      <td class="priority"><%= story.priority %></div></td>
+      <td class="iteration <%= story.release.downcase %>"><%= story.release %></td>
+      <td class="priority"><%= story.priority.to_i %></div></td>
     </tr>
   </table>
-  <%= cycle('','<hr/>') %>
+  <%= cycle('', '', '<hr/>') %>
   <% end %>
 </body>
 </html>

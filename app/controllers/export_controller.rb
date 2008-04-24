@@ -12,6 +12,7 @@ class Story
     story.iteration = (e/'Iteration').first ? (e/'Iteration').first.attributes['refObjectName'].strip.to_i : 'BACKLOG'
     story.priority = (e/'Rank').inner_text.to_f
     story.description = (e/'Description').inner_text
+    story.release = (e/'Release').first ? (e/'Release').first.attributes['refObjectName'].strip : 'UNSCHEDULED'
     story
   end
   
@@ -26,16 +27,10 @@ Filter = Struct.new :query, :order
 class ExportController < ApplicationController
 
   def index
-    # f = Filter.new params[:filter][:query], params[:filter][:order]
-    # h = Hpricot::XML from_rally(f.query, f.order)
-    h = Hpricot::XML open('/Users/cv/Downloads/Stories.xml')
+    h = Hpricot::XML open('/Users/cv/Downloads/Stories.xml') # FIXME
     @stories = (h/'HierarchicalRequirement').collect {|e| Story.from(e) }
   end
   
   private
     
-  def from_rally(query=nil, order=nil)
-    `lib/rally-downloader.sh '#{query}' '#{order}'`
-  end
-  
 end
