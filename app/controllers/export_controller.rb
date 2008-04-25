@@ -26,8 +26,12 @@ Filter = Struct.new :query, :order
 
 class ExportController < ApplicationController
 
+  def self.stories_xml_location=(location)
+    @@stories_xml_location = location
+  end
+  
   def index
-    h = Hpricot::XML open('/Users/cv/Downloads/Stories.xml') # FIXME
+    h = Hpricot::XML open(ExportConfig::stories_xml_location)
     @stories = (h/'HierarchicalRequirement').collect {|e| Story.from(e) }
   end
   
