@@ -3,18 +3,25 @@ Rally Export Tool
 
 This is a simple tool that reads the XML exports from Rally[1] and spits out a series of story cards ready for print.
 
+[1] http://www.rallydev.com
+
 You'll need:
 ------------
 
-- Ruby 1.8.6 or higher
-- RubyGems 1.1.0 or higher
-- Ruby On Rails 1.2.3 or higher
-- Hpricot 0.6 or higher
+- Ruby 1.8.6 or higher [2]
+- RubyGems 1.1.0 or higher [3]
+- Ruby On Rails 1.2.3 or higher [4]
+- Hpricot 0.6 or higher [5]
 
-Install:
---------
+[2]: http://www.ruby-lang.org
+[3]: http://www.rubygems.org
+[4]: http://www.rubyonrails.org
+[5]: http://code.whytheluckystiff.net/hpricot
 
-Install Ruby, RubyGems and Ruby On Rails:
+Installation
+------------
+
+Install Ruby, RubyGems and Ruby On Rails. Instructions can be found at:
 
     http://www.rubyonrails.org/down
 
@@ -22,9 +29,21 @@ Install Hpricot:
 
     gem install hpricot
 
+Edit the config/environment.rb file, look for the line:
+
+    ExportConfig::stories_xml_location = "..."
+
+And point at the place where the Stories.xml file from Rally was downloaded.
+
 Start the server:
 
     cd $PATH_TO/rally-export
     ./script/start # or script\start on Windows
 
-Download file
+Go to:
+
+    http://localhost:3000/export
+    
+You should be see a long list of cards. Print it, and you should have 3 3x5 cards per page, ready to be cut and put on your story wall.
+
+- Carlos Villela <cv@lixo.org>
