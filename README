@@ -10,7 +10,7 @@ You'll need:
 
 - Ruby 1.8.6 or higher [2]
 - RubyGems 1.1.0 or higher [3]
-- Ruby On Rails 1.2.3 or higher [4]
+- Ruby On Rails 2.0 or higher [4]
 - Hpricot 0.6 or higher [5]
 
 [2]: http://www.ruby-lang.org
