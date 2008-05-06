@@ -8,6 +8,7 @@ h2. Requirements
 * "RubyGems 1.1.0 or higher":http://www.rubygems.org
 * "Ruby On Rails 2.0 or higher":http://www.rubyonrails.org
 * "Hpricot 0.6 or higher":http://code.whytheluckystiff.net/hpricot
+* "Morph 0.2.0 or higher":http://rubyforge.org/projects/morph/
 
 h2. Installation
 
