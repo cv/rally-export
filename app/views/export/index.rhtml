@@ -10,15 +10,14 @@ body {
 }
 
 table {
-  width: 5in;
-  height: 3in;
+  width: 6in;
+  height: 4in;
   border: 1px dashed #888;
   padding: 10px;
   margin: 0.10in;
 }
 
 hr {
-  display: none;
   page-break-after: always;
 }
 
@@ -80,14 +79,14 @@ hr {
       <td class="name" colspan="2"><%= story.name %></td>
     <tr>
     <tr>
-      <td class="description" colspan="2"><!-- <%= story.description %> --></td>
+      <td class="description" colspan="2"><%= story.description %></td>
     </tr>
     <tr>
       <td class="iteration <%= story.release.downcase %>"><%= story.release %></td>
       <td class="priority"><%= story.priority.to_i %></div></td>
     </tr>
   </table>
-  <%= cycle('', '', '<hr/>') %>
+  <%= cycle('', '<hr/>') %>
   <% end %>
 </body>
 </html>
