@@ -1,6 +1,7 @@
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
+  config.frameworks -= [ :active_record ]
   config.action_controller.session = { :session_key => "_rally_export_session", :secret => "rally export tool rally export tool rally export tool" }
 end
 

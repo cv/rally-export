@@ -10,19 +10,23 @@ h2. Requirements
 * "Hpricot 0.6 or higher":http://code.whytheluckystiff.net/hpricot
 * "Morph 0.2.0 or higher":http://rubyforge.org/projects/morph/
 
+You don't need to set up a database anymore, but future versions may need SQLite 3 installed.
+
 h2. Installation
 
 Install Ruby, RubyGems and Ruby On Rails. Instructions can be found at "this link":http://www.rubyonrails.org/down.
 
-Install Hpricot:
+Install Hpricot and Morph:
 
-bq. @gem install hpricot@
+@gem install hpricot@
+
+@gem install morph@
 
 Edit the @config/environment.rb@ file, look for the line:
 
-bq. @ExportConfig::stories_xml_location = "..."@
+@STORIES_XML_LOCATION = "..."@
 
-And point at the place where the Stories.xml file from Rally was downloaded.
+And point at the place where the Stories.xml file from Rally was downloaded. On Windows, use forward slashes (so @C:\foo\bar\stories.xml@ becomes @C:/foo/bar/stories.xml@)
 
 Start the server:
 
