@@ -31,7 +31,7 @@ And point at the place where the Stories.xml file from Rally was downloaded. On 
 Start the server:
 
 bq. @cd $PATH_TO/rally-export@
-bq. @./script/start # or script\start on Windows@
+bq. @./script/start # or ruby script\start on Windows@
 
 Go to "@http://localhost:3000/export@":http://localhost:3000/export. You should be see a long list of cards. Print it, and you should have 3 3x5 cards per page, ready to be cut and put on your story wall.
 
