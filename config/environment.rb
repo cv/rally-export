@@ -5,4 +5,4 @@ Rails::Initializer.run do |config|
 end
 
 # edit this to point at the location where the Stories.xml file gets downloaded to
-ExportConfig::stories_xml_location = "/Users/cv/Downloads/Stories.xml"
+STORIES_XML_LOCATION = "/Users/cv/Downloads/Stories.xml"
