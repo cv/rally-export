@@ -69,7 +69,6 @@ hr {
 <body>
     
   <% for story in @stories %>
-  <% next if story.estimate == 0 %>
   <table>
     <tr>
       <td class="id"><%= story.formatted_id %></td>
