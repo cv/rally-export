@@ -5,6 +5,7 @@ require 'morph'
 
 Merb::Router.prepare do |r|
   r.match('/').to(:controller => 'exporter', :action =>'index')
+  r.match('/export').to(:controller => 'exporter', :action =>'index')
 end
 
 Merb::Config.use { |c|
