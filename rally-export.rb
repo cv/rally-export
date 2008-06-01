@@ -1,3 +1,5 @@
+STORIES_XML_LOCATION='/Users/administrator/Downloads/Stories.xml'
+
 require 'hpricot'
 require 'morph'
 
@@ -13,7 +15,7 @@ Merb::Config.use { |c|
 
 class Exporter < Merb::Controller
   def index
-    h = Hpricot::XML open('/Users/administrator/Downloads/Stories.xml')
+    h = Hpricot::XML open(STORIES_XML_LOCATION)
     @stories = (h/'HierarchicalRequirement').collect {|e| Story.from(e) }
     render :template=>'../../index'
   end
